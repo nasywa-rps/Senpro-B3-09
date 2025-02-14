@@ -2,5 +2,5 @@
 Senior Project Kelompok B3_09
 
 Ketua Kelompok: 
-Anggota 1:
+Anggota 1: Nasywa Rahmadhani Putri Setiawan - 22/498375/TK/54665
 Anggota 2: 
