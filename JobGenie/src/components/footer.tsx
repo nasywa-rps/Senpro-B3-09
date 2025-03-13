@@ -1,11 +1,15 @@
 import React from 'react';
 
-function Footer({ githubLink }) {
+interface FooterProps {
+  text: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ text }) => {
   return (
     <footer>
-      <p>Link Github: {githubLink}</p>
+      <p>{text}</p>
     </footer>
   );
-}
+};
 
 export default Footer;
