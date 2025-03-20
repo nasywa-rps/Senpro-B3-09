@@ -1,8 +1,10 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Card from './components/card';
 import SearchCard from './components/searchCard';
 import Footer from './components/footer';
+import JobForm from './jobform/page';
 
 function App() {
   // Data untuk navbar
@@ -11,7 +13,7 @@ function App() {
     logoAlt: "JobGenie Logo",
     title: "JobGenie",
     links: [
-      { text: "Lorem", url: "#" },
+      { text: "Lorem", url: "/jobform" },
       { text: "Lorem", url: "#" },
       { text: "Lorem", url: "#" }
     ],
@@ -45,36 +47,45 @@ function App() {
   const footerText = "Link Github: Lorem ipsum dolor sit amet, consectetur adipiscing elit";
 
   return (
-    <div className="container" style={{ flex: "column" }}>
-      <Navbar 
-        logo={navbarData.logo}
-        logoAlt={navbarData.logoAlt}
-        title={navbarData.title}
-        links={navbarData.links}
-        profileName={navbarData.profileName}
-        profileIcon={navbarData.profileIcon}
-        profileIconAlt={navbarData.profileIconAlt}
-      />
-      
-      <Card 
-        title="Apa itu JobGenie?" 
-        text={jobGenieText} 
-      />
-      
-      <Card 
-        title="Keuntungan JobGenie" 
-        text={jobGenieText} 
-      />
-      
-      <SearchCard 
-        title={searchCardData.title}
-        steps={searchCardData.steps}
-        imageUrl={searchCardData.imageUrl}
-        imageAlt={searchCardData.imageAlt}
-      />
-      
-      <Footer text={footerText} />
-    </div>
+    <Router>
+      <div className="container" style={{ flex: "column" }}>
+        <Navbar 
+          logo={navbarData.logo}
+          logoAlt={navbarData.logoAlt}
+          title={navbarData.title}
+          links={navbarData.links}
+          profileName={navbarData.profileName}
+          profileIcon={navbarData.profileIcon}
+          profileIconAlt={navbarData.profileIconAlt}
+        />
+        
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Card 
+                title="Apa itu JobGenie?" 
+                text={jobGenieText} 
+              />
+              
+              <Card 
+                title="Keuntungan JobGenie" 
+                text={jobGenieText} 
+              />
+              
+              <SearchCard 
+                title={searchCardData.title}
+                steps={searchCardData.steps}
+                imageUrl={searchCardData.imageUrl}
+                imageAlt={searchCardData.imageAlt}
+              />
+            </>
+          } />
+          <Route path="/jobform" element={<JobForm />}/>
+        </Routes>
+        
+        <Footer text={footerText} />
+      </div>
+    </Router>
   );
 }
 
