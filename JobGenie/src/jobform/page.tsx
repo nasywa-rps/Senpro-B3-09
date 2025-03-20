@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import '../app.css'; // Import global CSS
+import { useNavigate } from 'react-router-dom';
 
 type FormData = {
   data1: string;
@@ -48,9 +49,12 @@ const JobForm: React.FC = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setNotification({ message: 'Form submitted successfully!', type: 'success' });
+    navigate('/joblist');
   };
 
   return (

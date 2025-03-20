@@ -5,6 +5,7 @@ import Card from './components/card';
 import SearchCard from './components/searchCard';
 import Footer from './components/footer';
 import JobForm from './jobform/page';
+import JobList from './joblist/page';
 
 function App() {
   // Data untuk navbar
@@ -81,6 +82,7 @@ function App() {
             </>
           } />
           <Route path="/jobform" element={<JobForm />}/>
+          <Route path="/joblist" element={<JobList />} />
         </Routes>
         
         <Footer text={footerText} />
