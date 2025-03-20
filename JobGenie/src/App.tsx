@@ -13,11 +13,11 @@ function App() {
     logoAlt: "JobGenie Logo",
     title: "JobGenie",
     links: [
+      { text: "Home", url: "/#" },
       { text: "Job Form", url: "/jobform" },
-      { text: "Lorem", url: "#" },
       { text: "Lorem", url: "#" }
     ],
-    profileName: "Lorem",
+    profileName: "Person 1",
     profileIcon: "Male User.png",
     profileIconAlt: "Profile Icon"
   };
@@ -44,7 +44,7 @@ function App() {
   };
   
   // Data untuk footer
-  const footerText = "Link Github: Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+  const footerText = "Link Github: https://github.com/nasywa-rps/Senpro-B3-09.git";
 
   return (
     <Router>

@@ -1,8 +1,29 @@
 /* Global */
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: Arial, sans-serif;
   background-color: #f9f6ec;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 60px; /* Untuk navbar fixed */
+}
+
+.content-wrapper {
+  flex: 1; /* Ini akan mendorong footer ke bawah */
 }
 
 /* Navbar */
@@ -10,16 +31,29 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f3d25;
+  background-color: #1a472a;
   padding: 15px 5%;
   color: white;
-  width: 100%;
+  width: 100%; /* Ganti 100vw menjadi 100% */
   box-sizing: border-box;
+  margin: 0;
+  position: fixed; /* Gunakan fixed untuk menempel di atas */
+  top: 0; /* Pastikan menempel di atas */
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Untuk memastikan navbar selalu di atas konten lain */
 }
 
 .navbar .logo {
   font-size: 20px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px;
+  margin-right: 5px;
 }
 
 .nav-links a {
@@ -100,83 +134,99 @@ body {
   padding-left: 20px;
 }
 
+
 /* Footer */
 footer {
-  background-color: #1f3d25;
+  background-color: #1a472a;
   color: white;
   text-align: center;
-  padding: 10px;
-  margin-top: 20px;
-  width: 100%;
+  padding: 8px;
+  font-size: 0.8rem;
+  width: 100vw;
   box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  left: 0;
+  right: 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
 }
 
 /* JobForm Styles */
 .jobform-container {
-  min-height: 100vh;
+  flex: 1; /* Mengisi ruang yang tersedia */
   background-color: #F8F5E5;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .jobform-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .jobform-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: black;
+  margin-bottom: 20px;
 }
 
 .jobform-form-wrapper {
   width: 80%;
-  max-width: 800px;
-  margin-top: 32px;
+  max-width: 600px;
 }
 
 .jobform-subtitle {
   font-size: 1rem;
   font-weight: 600;
   color: black;
+  margin-bottom: 10px;
 }
 
 .jobform-input-group {
   display: flex;
   flex-direction: column;
-  margin-top: 16px;
+  margin-bottom: 15px;
 }
 
 .jobform-label {
   color: black;
   font-size: 0.875rem;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .jobform-input {
   width: 100%;
-  height: 97px;
-  font-size: 20px;
-  font-weight: 500;
-  border: 1px solid gray;
-  border-radius: 8px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: normal;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   padding: 8px;
   background-color: #B5C6BE;
   outline: none;
 }
 
 .jobform-divider {
-  border: 1px solid gray;
-  margin: 24px 0;
+  border: 0.5px solid #ccc;
+  margin: 20px 0;
 }
 
 /* File Input */
 .jobform-file-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .jobform-file-wrapper {
@@ -187,32 +237,33 @@ footer {
 }
 
 .jobform-file-input {
-  border: 1px solid gray;
-  border-radius: 6px;
-  padding: 8px;
-  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background-color: #fff;
 }
 
 .jobform-file-note {
   font-size: 0.75rem;
   color: gray;
+  margin-top: 3px;
 }
 
 /* Submit Button */
 .jobform-button-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 15px;
 }
 
 .jobform-submit-button {
-  width: 150px;
-  height: 50px;
+  width: 120px;
+  height: 40px;
   background-color: #F4B860;
   color: white;
   font-size: 1rem;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
 }
