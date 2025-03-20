@@ -25,9 +25,15 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column; /* Memastikan elemen tersusun vertikal */
+  align-items: center; /* Pusatkan elemen secara horizontal */
+  justify-content: center; /* Pusatkan elemen secara vertikal */
+  min-width: 100vw;
   min-height: 100vh;
+}
+
+html, body {
+  width: 100%;
 }
 
 h1 {
