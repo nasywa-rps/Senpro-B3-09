@@ -13,7 +13,7 @@ function App() {
     logoAlt: "JobGenie Logo",
     title: "JobGenie",
     links: [
-      { text: "Lorem", url: "/jobform" },
+      { text: "Job Form", url: "/jobform" },
       { text: "Lorem", url: "#" },
       { text: "Lorem", url: "#" }
     ],
