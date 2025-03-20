@@ -110,3 +110,109 @@ footer {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* JobForm Styles */
+.jobform-container {
+  min-height: 100vh;
+  background-color: #F8F5E5;
+  display: flex;
+  flex-direction: column;
+}
+
+.jobform-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.jobform-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.jobform-form-wrapper {
+  width: 80%;
+  max-width: 800px;
+  margin-top: 32px;
+}
+
+.jobform-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.jobform-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.jobform-label {
+  color: black;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.jobform-input {
+  width: 100%;
+  height: 97px;
+  font-size: 20px;
+  font-weight: 500;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: #B5C6BE;
+  outline: none;
+}
+
+.jobform-divider {
+  border: 1px solid gray;
+  margin: 24px 0;
+}
+
+/* File Input */
+.jobform-file-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.jobform-file-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.jobform-file-input {
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #e0e0e0;
+}
+
+.jobform-file-note {
+  font-size: 0.75rem;
+  color: gray;
+}
+
+/* Submit Button */
+.jobform-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.jobform-submit-button {
+  width: 150px;
+  height: 50px;
+  background-color: #F4B860;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}

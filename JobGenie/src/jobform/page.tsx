@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import '../app.css'; // Import global CSS
 
 type FormData = {
   data1: string;
@@ -53,77 +54,56 @@ const JobForm: React.FC = () => {
   };
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#F8F5E5", display: "flex", flexDirection: "column" }}>
-
+    <div className="jobform-container">
       {/* Main Content */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "40px 0" }}>
-        <h1 style={{ fontSize: "2rem", fontWeight: "bold", color: "black" }}>Lorem Ipsum</h1>
+      <div className="jobform-content">
+        <h1 className="jobform-title">Lorem Ipsum</h1>
 
-        <div style={{ width: "80%", maxWidth: "800px", marginTop: "32px" }}>
-          <h2 style={{ fontSize: "1rem", fontWeight: "600", color: "black" }}>Isi Data</h2>
+        <div className="jobform-form-wrapper">
+          <h2 className="jobform-subtitle">Isi Data</h2>
 
           <form onSubmit={handleSubmit}>
             {["data1", "data2", "data3", "data4", "data5"].map((name, index) => (
-              <div key={index} style={{ display: "flex", flexDirection: "column", marginTop: "16px" }}>
-                <label style={{ color: "black", fontSize: "0.875rem", fontWeight: "500" }}>Data {index + 1}</label>
+              <div key={index} className="jobform-input-group">
+                <label className="jobform-label">Data {index + 1}</label>
                 <input
-                    type="text"
-                    name={name}
-                    value={formData[name as keyof FormData] as string}
-                    onChange={handleChange}
-                    style={{
-                        width: "712px",
-                        height: "97px",
-                        fontSize: "20px",
-                        fontWeight: "500",
-                        border: "1px solid gray",
-                        borderRadius: "8px",
-                        padding: "8px",
-                        backgroundColor: "#B5C6BE",
-                        outline: "none",
-                    }}
-                    />
+                  type="text"
+                  name={name}
+                  value={formData[name as keyof FormData] as string}
+                  onChange={handleChange}
+                  className="jobform-input"
+                />
               </div>
             ))}
 
-            <hr style={{ border: "1px solid gray", margin: "24px 0" }} />
+            <hr className="jobform-divider" />
 
             {/* File Input */}
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label style={{ color: "black", fontSize: "0.875rem", fontWeight: "500" }}>Masukkan CV</label>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginTop: "8px" }}>
+            <div className="jobform-file-group">
+              <label className="jobform-label">Masukkan CV</label>
+              <div className="jobform-file-wrapper">
                 <input 
                   type="file" 
                   onChange={handleFileChange} 
                   accept=".pdf,.doc,.docx" 
-                  style={{ border: "1px solid gray", borderRadius: "6px", padding: "8px", backgroundColor: "#e0e0e0" }} 
+                  className="jobform-file-input"
                 />
-                <span style={{ fontSize: "0.75rem", color: "gray" }}>*File CV harus dalam bentuk ATS</span>
+                <span className="jobform-file-note">*File CV harus dalam bentuk ATS</span>
               </div>
             </div>
 
             {/* Submit Button */}
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "24px" }}>
-              <button type="submit" style={{
-                width: "150px",
-                height: "50px",
-                backgroundColor: "#F4B860",
-                color: "white",
-                fontSize: "1rem",
-                fontWeight: "bold",
-                borderRadius: "6px",
-                border: "none",
-                cursor: "pointer",
-              }}>
+            <div className="jobform-button-wrapper">
+              <button type="submit" className="jobform-submit-button">
                 Cari
               </button>
             </div>
           </form>
         </div>
       </div>
-
     </div>
   );
 };
 
 export default JobForm;
+
