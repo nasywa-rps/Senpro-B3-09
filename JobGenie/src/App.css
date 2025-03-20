@@ -19,11 +19,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 60px; /* Untuk navbar fixed */
+  padding-top: 80px; /* Increased padding for better spacing */
 }
 
 .content-wrapper {
   flex: 1; /* Ini akan mendorong footer ke bawah */
+  padding-top: 20px; /* Added padding to create space after navbar */
 }
 
 /* Navbar */
@@ -32,69 +33,92 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #1a472a;
-  padding: 15px 5%;
+  padding: 10px 5%; /* Reduced from 15px to 10px */
   color: white;
-  width: 100%; /* Ganti 100vw menjadi 100% */
+  width: 100%;
   box-sizing: border-box;
   margin: 0;
-  position: fixed; /* Gunakan fixed untuk menempel di atas */
-  top: 0; /* Pastikan menempel di atas */
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Untuk memastikan navbar selalu di atas konten lain */
+  z-index: 1000;
+  height: 50px; /* Explicitly set height for smaller navbar */
 }
 
 .navbar .logo {
-  font-size: 20px;
+  font-size: 18px; /* Reduced from 20px */
   font-weight: bold;
   display: flex;
   align-items: center;
 }
 
 .logo img {
-  height: 30px;
+  height: 24px; /* Reduced from 30px */
   margin-right: 5px;
 }
 
 .nav-links a {
   color: white;
-  margin: 0 15px;
+  margin: 0 12px; /* Reduced from 15px */
   text-decoration: none;
+  font-size: 14px; /* Added smaller font size */
 }
 
+/* Profile - Reduced size */
 .profile {
   display: flex;
   align-items: center;
 }
 
 .profile-icon {
-  background-color: white;
+  height: 10px; /* Set explicit height */
+  width: 10px; /* Set explicit width for circular shape */
   color: #1f3d25;
   border-radius: 50%;
-  padding: 5px 10px;
-  margin-left: 10px;
+  padding: 2px; /* Reduced padding */
+  margin-left: 8px; /* Reduced from 10px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; /* Smaller font size if text is inside */
 }
 
-/* Section */
-.section {
-  background-color: #5b7c66;
+/* Card Section */
+.card-section {
+  background-color: #478067;
   margin: 30px auto;
-  padding: 20px;
-  width: 90%;
+  padding: 24px;
+  width: 45%;
   max-width: 1000px;
   color: white;
   border-radius: 10px;
+  position: relative;
 }
 
-/* Bottom Section */
-.bottom-section {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 30px;
-  flex-wrap: wrap;
-  width: 100%;
-  box-sizing: border-box;
+
+/* Card Title */
+.card-title {
+  position: relative;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.card-title h2 {
+  background-color: rgba(225, 225, 225, 0.8);
+  color: #333;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin: 0;
+}
+
+/* Card Text */
+.card-text {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #FAF9E7;
 }
 
 /* Image Card */
@@ -134,7 +158,6 @@ body {
   padding-left: 20px;
 }
 
-
 /* Footer */
 footer {
   background-color: #1a472a;
@@ -164,6 +187,7 @@ footer a {
   width: 100%;
   margin: 0;
   padding: 0;
+  margin-top: 30px; /* Add margin to create space after navbar */
 }
 
 .jobform-content {
@@ -266,4 +290,10 @@ footer a {
   border-radius: 4px;
   border: none;
   cursor: pointer;
+}
+
+/* Main container - ensure proper spacing */
+main, 
+.main-content {
+  padding-top: 40px; /* Added padding to ensure space below navbar */
 }
