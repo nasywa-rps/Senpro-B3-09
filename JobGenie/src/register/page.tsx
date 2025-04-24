@@ -3,37 +3,41 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './register.css'; // Copy dari login.css
+import axios from 'axios'
 
 const RegisterPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value);
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
+  const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value);
 
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /*const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value,
     }));
-  };
+  };*/
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
+    if (password !== confirmPassword) {
       alert("Password dan konfirmasi password tidak sama!");
       return;
     }
 
-    // Simulasi proses registrasi
-    console.log("Registering:", formData);
+    axios.post('http://localhost:3001/register', {username, password})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
 
-    // Redirect ke login setelah register sukses
-    navigate('/login');
+   /* // Redirect ke login setelah register sukses
+    navigate('/login');*/
   };
 
   return (
@@ -47,8 +51,8 @@ const RegisterPage: React.FC = () => {
             <input
               type="text"
               name="username"
-              value={formData.username}
-              onChange={handleChange}
+              value={username}
+              onChange={handleUsername}
               placeholder="Username"
               className="input-field"
             />
@@ -59,8 +63,8 @@ const RegisterPage: React.FC = () => {
             <input
               type="password"
               name="password"
-              value={formData.password}
-              onChange={handleChange}
+              value={password}
+              onChange={handlePassword}
               placeholder="Password"
               className="input-field"
             />
@@ -71,8 +75,8 @@ const RegisterPage: React.FC = () => {
             <input
               type="password"
               name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
+              value={confirmPassword}
+              onChange={handleConfirmPassword}
               placeholder="Confirm Password"
               className="input-field"
             />
