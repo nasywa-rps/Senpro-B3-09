@@ -369,3 +369,230 @@ main,
   border-radius: 5px;
   font-size: 1rem;
 }
+
+
+/* Login Page */
+/* Login Page Styles */
+:root {
+  --primary-purple: #6c4cd5;
+  --dark-purple: #3b1f7a;
+  --light-purple: #9574e4;
+  --white: #ffffff;
+  --transparent-purple: rgba(108, 76, 213, 0.7);
+}
+
+.login-bg {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #3b1f7a, #6c4cd5);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    url('mountain-silhouette.png'); /* You'll need to create this image or use a free asset */
+  background-size: 
+    100px 100px,
+    50px 50px,
+    cover;
+  background-position: 
+    0 0,
+    25px 25px,
+    bottom center;
+  background-repeat: repeat, repeat, no-repeat;
+  z-index: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.login-form-container {
+  background: rgba(65, 38, 132, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.login-title {
+  color: var(--white);
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-input-group {
+  position: relative;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-input:focus {
+  background: var(--white);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.login-input-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-purple);
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  color: var(--white);
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.remember-checkbox {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--white);
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.remember-checkbox:checked::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  font-size: 12px;
+}
+
+.forgot-password-link {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.login-button {
+  margin-top: 20px;
+  background: var(--white);
+  color: var(--primary-purple);
+  border: none;
+  border-radius: 25px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.register-prompt {
+  margin-top: 20px;
+  color: var(--white);
+  font-size: 0.9rem;
+}
+
+.register-link {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 0;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  animation: slideIn 0.3s ease-out forwards;
+  z-index: 100;
+}
+
+.notification.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.notification.error {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .login-form-container {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}

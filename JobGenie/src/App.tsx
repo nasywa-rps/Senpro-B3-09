@@ -6,6 +6,8 @@ import SearchCard from './components/searchCard';
 import Footer from './components/footer';
 import JobForm from './jobform/page';
 import JobList from './joblist/page';
+import LoginPage from './login/page'; 
+import RegisterPage from './register/page';
 
 function App() {
   // Data untuk navbar
@@ -16,6 +18,7 @@ function App() {
     links: [
       { text: "Home", url: "/#" },
       { text: "Job Form", url: "/jobform" },
+      { text: "Login", url: "/login" }, // Added Login link
       { text: "Lorem", url: "#" }
     ],
     profileName: "Person 1",
@@ -48,46 +51,44 @@ function App() {
   const footerText = "Link Github: https://github.com/nasywa-rps/Senpro-B3-09.git";
 
   return (
-    <Router>
-      <div className="container" style={{ flex: "column" }}>
-        <Navbar 
-          logo={navbarData.logo}
-          logoAlt={navbarData.logoAlt}
-          title={navbarData.title}
-          links={navbarData.links}
-          profileName={navbarData.profileName}
-          profileIcon={navbarData.profileIcon}
-          profileIconAlt={navbarData.profileIconAlt}
-        />
-        
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Card 
-                title="Apa itu JobGenie?" 
-                text={jobGenieText} 
-              />
-              
-              <Card 
-                title="Keuntungan JobGenie" 
-                text={jobGenieText} 
-              />
-              
-              <SearchCard 
-                title={searchCardData.title}
-                steps={searchCardData.steps}
-                imageUrl={searchCardData.imageUrl}
-                imageAlt={searchCardData.imageAlt}
-              />
-            </>
-          } />
-          <Route path="/jobform" element={<JobForm />}/>
-          <Route path="/joblist" element={<JobList />} />
-        </Routes>
-        
-        <Footer text={footerText} />
-      </div>
-    </Router>
+<Router>
+  <div className="container" style={{ flex: "column" }}>
+    <Routes>
+      {/* Route Login */}
+      <Route path="/login" element={<LoginPage />} />
+      
+      {/* Semua route lain */}
+      <Route path="/" element={
+        <>
+          <Navbar {...navbarData} />
+          <Card title="Apa itu JobGenie?" text={jobGenieText} />
+          <Card title="Keuntungan JobGenie" text={jobGenieText} />
+          <SearchCard {...searchCardData} />
+          <Footer text={footerText} />
+        </>
+      } />
+      
+      <Route path="/jobform" element={
+        <>
+          <Navbar {...navbarData} />
+          <JobForm />
+          <Footer text={footerText} />
+        </>
+      } />
+      
+      <Route path="/register" element={<RegisterPage />} />
+
+      <Route path="/joblist" element={
+        <>
+          <Navbar {...navbarData} />
+          <JobList />
+          <Footer text={footerText} />
+        </>
+      } />
+    </Routes>
+  </div>
+</Router>
+
   );
 }
 
