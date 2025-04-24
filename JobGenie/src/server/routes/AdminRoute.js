@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const adminController = require('../controllers/AdminController');
+const adminController = require('../../controllers/AdminController');
 const {
     createAdmin,
     getAllAdmins,
     getAdminById,
     updateAdmin,
     deleteAdmin,
-} = require('../controllers/AdminController');
+} = require('../../controllers/AdminController');
 
 
 // Create a new admin
